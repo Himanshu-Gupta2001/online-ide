@@ -9,18 +9,10 @@
     fclose($programFile);
 
     if($language == "php") {
-        $output = shell_exec("C:\wamp64\bin\php\php5.6.40\php.exe $filePath 2>&1");
+        $output = shell_exec("C:\wamp\bin\php\php5.6.35\php.exe $filePath 2>&1");
         echo $output;
     }
-    if($language == "python") {
-        $output = shell_exec("C:\Users\KOUSIK\AppData\Local\Programs\Python\Python39\python.exe $filePath 2>&1");
-        echo $output;
-    }
-    if($language == "node") {
-        rename($filePath, $filePath.".js");
-        $output = shell_exec("node $filePath.js 2>&1");
-        echo $output;
-    }
+    
     if($language == "c") {
         $outputExe = $random . ".exe";
         shell_exec("gcc $filePath -o $outputExe");
@@ -33,3 +25,4 @@
         $output = shell_exec(__DIR__ . "//$outputExe");
         echo $output;
     }
+    
